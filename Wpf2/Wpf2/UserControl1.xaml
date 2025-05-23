@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="Wpf2.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Wpf2"
+             mc:Ignorable="d" 
+             d:DesignHeight="70" d:DesignWidth="300">
+    <Border x:Name="bubbleBorder" Background="DarkOrange" CornerRadius="10">
+        <StackPanel Height="70" VerticalAlignment="Center" Margin="5,0,-6,0">
+            <TextBlock x:Name ="usernameText" Text=" User" FontSize="20" Foreground="White" FontWeight="Bold" Width="185" RenderTransformOrigin="0.524,0.555"/>
+            <TextBlock x:Name ="messageContent" Text="smth" FontSize="16" Foreground="White" Width="176"/>
+            <TextBlock x:Name ="date" Text="date" Height="26" Width="125" HorizontalAlignment="Right"/>
+
+        </StackPanel>
+
+    </Border>
+    <!--Grid>
+       
+            <Border Background="DarkOrange" CornerRadius="10">
+                <StackPanel>
+                <TextBlock Text=" User" FontSize="20" Foreground="White" FontWeight="Bold"/>
+                <TextBlock Text="smth" FontSize="16" Foreground="White" Width="186"/>
+             
+            </StackPanel>
+
+            </Border>
+        
+    </Grid-->
+</UserControl>
