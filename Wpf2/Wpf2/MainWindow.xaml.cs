@@ -49,7 +49,17 @@ namespace Wpf2
             Application.Current.Shutdown();
         }
 
-        
+        private void Enter(object sender, KeyEventArgs e)
+        {
+            string text = Input.Text.Trim();
+            if (e.Key == Key.Enter)
+            {
+               
+                SendMes(text);
+                Input.Text = null;
+            }
+
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string text = Input.Text.Trim();
