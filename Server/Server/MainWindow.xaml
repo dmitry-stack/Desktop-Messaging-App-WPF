@@ -1,0 +1,70 @@
+﻿<Window x:Class="Server.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Server"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="622" Width="800">
+    <Grid Height="600" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+           
+            <RowDefinition/>
+           
+            <RowDefinition Height="Auto" MinHeight="0"/>
+          
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Connection Info" Grid.Row="0" Width ="433" Margin="0,0,352,347" >
+            <Grid Height="138" HorizontalAlignment="Left" Width="530" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="210"/>
+                    <ColumnDefinition Width="210"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Username:" VerticalAlignment="Center" Margin="2"/>
+                <TextBox x:Name="txtUsername" Grid.Row="1" Grid.Column="0" Margin="2"/>
+
+                <Label Grid.Row="0" Grid.Column="1" Content="Password:" VerticalAlignment="Center" Margin="2"/>
+                <PasswordBox x:Name="txtPassword" Grid.Row="1" Grid.Column="1" Margin="2"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Address:" VerticalAlignment="Center" Margin="2"/>
+                <TextBox x:Name="txtAddress" Grid.Row="3" Grid.Column="0" Margin="2"/>
+
+                <Label Grid.Row="2" Grid.Column="1" Content="Port:" VerticalAlignment="Center" Margin="2"/>
+                <TextBox x:Name="txtPort" Grid.Row="3" Grid.Column="1" Margin="2"/>
+
+                <Button x:Name="btnStart" Grid.Row="4" Grid.Column="1" Content="Start" Width="80" Margin="2" HorizontalAlignment="Right" Click="Start" />
+            </Grid>
+
+
+        </GroupBox>
+        <TextBox Name="txtServerMessage" PreviewKeyDown="txtInput_KeyDown"  AcceptsReturn="True" HorizontalAlignment="Left" Margin="0,43,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="345" Height="28"/>
+        <Button Content="Send" HorizontalAlignment="Left" Margin="350,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="92" Height="28" Click="Button_Click"/>
+        <Button Content="Kick" HorizontalAlignment="Left" Margin="451,43,0,0" Grid.Row="1" VerticalAlignment="Top" Height="28" Width="344" Click="Button_Click_1"/>
+
+        <Grid Grid.Row="0" Margin="0,0,0,232">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                
+                <ColumnDefinition Width="250"/>
+            
+            </Grid.ColumnDefinitions>
+
+            <GroupBox Header="Logged Clients"   Grid.ColumnSpan="2" Margin="452,0,0,-48">
+                <ListBox SelectionMode="Extended" x:Name="lstClients"/>
+            </GroupBox>
+        </Grid>
+        <ListBox  Name="lstLog" Margin="10,166,358,54" Grid.RowSpan="2"/>
+    </Grid>
+</Window>

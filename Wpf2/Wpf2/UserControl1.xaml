@@ -6,14 +6,25 @@
              xmlns:local="clr-namespace:Wpf2"
              mc:Ignorable="d" 
              d:DesignHeight="70" d:DesignWidth="300">
-    <Border x:Name="bubbleBorder" Background="DarkOrange" CornerRadius="10">
-        <StackPanel Height="70" VerticalAlignment="Center" Margin="5,0,-6,0">
-            <TextBlock x:Name ="usernameText" Text=" User" FontSize="20" Foreground="White" FontWeight="Bold" Width="185" RenderTransformOrigin="0.524,0.555"/>
-            <TextBlock x:Name ="messageContent" Text="smth" FontSize="16" Foreground="White" Width="176"/>
-            <TextBlock x:Name ="date" Text="date" Height="26" Width="125" HorizontalAlignment="Right"/>
-
+    <Border x:Name="bubbleBorder" CornerRadius="12" Background="DarkOrange" Margin="5" Padding="10">
+        <StackPanel>
+            <TextBlock x:Name="usernameText" Text="{Binding Username}" 
+                       FontWeight="Bold" Foreground="White"/>
+            <TextBlock x:Name="messageContent" Text="{Binding Message}" 
+                       TextWrapping="Wrap" Foreground="White" />
+            <TextBlock x:Name="date" Text="{Binding Date}" FontSize="10" 
+                       Foreground="Black" Width="45"
+                      ToolTip="{Binding ExactTimestamp}" Height="12" RenderTransformOrigin="3.312,0.941">
+                <!--TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform-->
+            </TextBlock>
         </StackPanel>
-
     </Border>
     <!--Grid>
        

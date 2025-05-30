@@ -1,0 +1,25 @@
+﻿<Window x:Class="Wpf2.LoginForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf2"
+        mc:Ignorable="d"
+        Title="LoginForm" Height="250" Width="420">
+    <Grid Height="236" VerticalAlignment="Top">
+        <TextBox  x:Name="txtUsername" HorizontalAlignment="Left" Margin="42,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Height="27"/>
+        <Label  Content="UserName:" HorizontalAlignment="Left" FontWeight="Bold" Margin="36,3,0,0" VerticalAlignment="Top" Width="134"/>
+        <Label   Content="Adress:" HorizontalAlignment="Left" FontWeight="Bold" Margin="36,83,0,0" VerticalAlignment="Top" Width="168"/>
+        <Label  Content="Password:" HorizontalAlignment="Left" FontWeight="Bold" Margin="220,3,0,0" VerticalAlignment="Top" Width="146"/>
+        <Label  Content="Port:" HorizontalAlignment="Left" FontWeight="Bold" Margin="225,83,0,0" VerticalAlignment="Top" Width="158"/>
+        <Button  x:Name="btnSubmit"  Click="btnSubmit_Click" Content="Subbmit" HorizontalAlignment="Left" FontWeight="Bold" Margin="42,158,0,0" VerticalAlignment="Top" Width="345" Height="32" Background="AliceBlue"/>
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="225,29,0,0"  VerticalAlignment="Top" Width="162" Height="27"/>
+        <TextBox  x:Name="txtAddress" HorizontalAlignment="Left" Margin="42,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Height="27"/>
+        <TextBox x:Name="txtPort" HorizontalAlignment="Left" Margin="225,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Height="27"/>
+        <ProgressBar x:Name="progressBar"
+             Margin="42,190,23,35"
+             IsIndeterminate="True"
+            Visibility="Collapsed"
+                     Background="AliceBlue" Foreground="#FF4C76A5"/>
+    </Grid>
+</Window>

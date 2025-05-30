@@ -20,44 +20,51 @@ namespace Wpf2
     /// </summary>
     public partial class UserControl1 : UserControl
     {
-        public int index;
-        public DateTime Stamp = DateTime.Now;
-        public string Date
-        {
-            get
-            {
-                var now= DateTime.Now;
-                var diff= now - Stamp;
-                //if (diff.TotalMinutes < 1)
-                //{
-                //    return "Now";
-
-                //}
-               return Stamp.ToString("dd/MM/yyyy");
-            }
-
-        }
-        
-        public UserControl1(int index,string text)
+        public HorizontalAlignment Alignment { get; set; }
+        public UserControl1()
         {
             InitializeComponent();
-            
 
-            if (index % 2 == 0)
+            this.DataContextChanged += (s, e) =>
             {
-                bubbleBorder.HorizontalAlignment = HorizontalAlignment.Left;
-                usernameText.Text =Environment.UserName;
-                date.Text = Date;
-            }
-            else
+                UpdateVisuals();
+            };
+        }
+
+
+        private void UpdateVisuals()
+        {
+            if (DataContext is MessageModel msg)
             {
-                this.HorizontalAlignment = HorizontalAlignment.Right;
-                usernameText.Text = "User";
-                date.Text = Date;
+                bubbleBorder.HorizontalAlignment = msg.Alignment;
+                usernameText.Text = msg.Username;
+                messageContent.Text = msg.Message;
+                date.Text = GetFormattedDate(msg.Timestamp);
+                date.ToolTip = msg.Timestamp.ToString("dd MMM yyyy HH:mm:ss");
             }
+        }
 
-            messageContent.Text = text;
+        public void RefreshTimestamp()
+        {
+            if (DataContext is MessageModel msg)
+            {
+                date.Text = GetFormattedDate(msg.Timestamp);
+                date.ToolTip = msg.Timestamp.ToString("dd MMM yyyy HH:mm:ss");
+            }
+        }
 
+        private string GetFormattedDate(DateTime stamp)
+        {
+            var now = DateTime.Now;
+            var diff = now - stamp;
+
+            if (diff.TotalMinutes < 1)
+                return "Now";
+            if (diff.TotalMinutes < 15)
+                return $"{(int)diff.TotalMinutes}m ago";
+            if (diff.TotalHours < 24)
+                return stamp.ToString("HH:mm");
+            return stamp.ToString("dd/MM/yyyy");
         }
     }
 }
